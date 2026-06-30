@@ -20,11 +20,8 @@ export function MarketingHeader() {
           <a href="#testimonials" className="transition hover:text-foreground">Customers</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Link to="/login" className="rounded-md px-4 py-2 text-sm text-muted-foreground transition hover:text-foreground">
-            Sign in
-          </Link>
-          <Link to="/register" className="rounded-md bg-aurora px-4 py-2 text-sm font-medium text-primary-foreground glow-aqua transition hover:opacity-90">
-            Get started
+          <Link to="/dashboard" className="rounded-md bg-aurora px-4 py-2 text-sm font-medium text-primary-foreground glow-aqua transition hover:opacity-90">
+            Launch Platform
           </Link>
         </div>
       </div>

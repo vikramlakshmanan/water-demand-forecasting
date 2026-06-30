@@ -1,14 +1,7 @@
-import { createFileRoute, Outlet, Link, redirect, useNavigate, useLocation } from "@tanstack/react-router";
-import { Activity, AlertTriangle, BarChart3, Bell, Brain, Database, Droplets, FileText, LayoutDashboard, LogOut, Settings, Sparkles, TrendingUp, Upload, Users } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/hooks/use-auth";
-import { toast } from "sonner";
+import { createFileRoute, Outlet, Link, useLocation } from "@tanstack/react-router";
+import { BarChart3, Bell, Brain, Database, Droplets, FileText, LayoutDashboard, Settings, Sparkles, Upload, Users, AlertTriangle, Activity, TrendingUp } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated")({
-  beforeLoad: async () => {
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) throw redirect({ to: "/login" });
-  },
   component: AuthenticatedLayout,
 });
 
@@ -26,15 +19,7 @@ const navItems = [
 ] as const;
 
 function AuthenticatedLayout() {
-  const { user, roles, signOut } = useAuth();
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const handleSignOut = async () => {
-    await signOut();
-    toast.success("Signed out");
-    navigate({ to: "/" });
-  };
 
   return (
     <div className="flex min-h-screen">
@@ -64,20 +49,6 @@ function AuthenticatedLayout() {
             );
           })}
         </nav>
-        <div className="border-t border-white/10 pt-4">
-          <div className="flex items-center gap-3 rounded-lg px-2 py-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-aurora text-sm font-semibold text-primary-foreground">
-              {(user?.email ?? "U")[0].toUpperCase()}
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <div className="truncate text-sm font-medium">{user?.email}</div>
-              <div className="text-xs text-muted-foreground capitalize">{roles[0] ?? "viewer"}</div>
-            </div>
-            <button onClick={handleSignOut} className="rounded-md p-2 text-muted-foreground transition hover:bg-white/5 hover:text-destructive" title="Sign out">
-              <LogOut className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
       </aside>
 
       <main className="flex-1 overflow-x-hidden">
@@ -88,9 +59,6 @@ function AuthenticatedLayout() {
             </div>
             <span className="font-semibold">AquaIntel</span>
           </Link>
-          <button onClick={handleSignOut} className="rounded-md p-2 text-muted-foreground hover:text-destructive">
-            <LogOut className="h-4 w-4" />
-          </button>
         </div>
         <div className="md:hidden border-b border-white/10 overflow-x-auto">
           <div className="flex gap-1 px-3 py-2">
