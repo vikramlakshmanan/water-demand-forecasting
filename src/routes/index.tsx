@@ -44,10 +44,10 @@ function Hero() {
           Enterprise AI platform helping smart cities, municipal corporations, and water authorities forecast urban demand year-by-year — and act before shortages hit.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link to="/register" className="inline-flex items-center gap-2 rounded-lg bg-aurora px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-aqua transition hover:opacity-90">
-            Get Started <Zap className="h-4 w-4" />
+          <Link to="/dashboard" className="inline-flex items-center gap-2 rounded-lg bg-aurora px-7 py-3.5 text-sm font-semibold text-primary-foreground glow-aqua transition hover:opacity-90">
+            Launch Platform <Zap className="h-4 w-4" />
           </Link>
-          <Link to="/login" className="inline-flex items-center gap-2 rounded-lg glass px-7 py-3.5 text-sm font-semibold transition hover:bg-white/10">
+          <Link to="/forecast" className="inline-flex items-center gap-2 rounded-lg glass px-7 py-3.5 text-sm font-semibold transition hover:bg-white/10">
             Live Demo <Activity className="h-4 w-4" />
           </Link>
         </div>
@@ -245,8 +245,8 @@ function CTA() {
             <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Plan the next decade of urban water — today.</h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">Spin up your municipal forecast in minutes. Free for analyst seats.</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link to="/register" className="rounded-lg bg-aurora px-8 py-3.5 text-sm font-semibold text-primary-foreground glow-aqua">Get started free</Link>
-              <Link to="/login" className="rounded-lg glass px-8 py-3.5 text-sm font-semibold">Sign in</Link>
+              <Link to="/dashboard" className="rounded-lg bg-aurora px-8 py-3.5 text-sm font-semibold text-primary-foreground glow-aqua">Launch Platform</Link>
+              <Link to="/forecast" className="rounded-lg glass px-8 py-3.5 text-sm font-semibold">Try Forecast</Link>
             </div>
           </div>
         </div>
